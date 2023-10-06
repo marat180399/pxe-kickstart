@@ -1,0 +1,7 @@
+---
+# defaults file for pxeOsInstall---
+  packages: '@^desktop-environment'
+  admin_name: admin
+  admin_pw_hash: $6$EiynELNwFMMNEt3P$4gPNkCPIQcyS/33eoVZrVPljctGeQqkv/DKPtnRP6vZ9r3aUm58fxKzDhhUSkvmtZnCd5keHSDEbUhXivvcTV/
+  url: http://192.168.2.2/images/REDOS
+  root_pw_hash: $6$0ZhzLjJlMDw41IxU$t8L4TQY8U.2VcE4kwkgpIXuR5361jXtmnTNh92otyggyVHap2/FFRmok7RZX6yDf6iNvWNlMfhPpb4QkoTdc2/

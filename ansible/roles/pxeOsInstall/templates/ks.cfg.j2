@@ -1,0 +1,47 @@
+graphical
+
+# Reboot after installation
+reboot
+
+# Keyboard
+keyboard --vckeymap=us --xlayouts='us','ru' --switch='grp:alt_shift_toggle'
+lang ru_RU.UTF-8
+
+# hostname
+network  --hostname=engineer-arm
+
+# Use network installation
+#url --url="http://192.168.2.2/images/REDOS"
+url --url="{{ url }}"
+
+# Run the Setup Agent on first boot
+firstboot --enable
+
+# Generated using Blivet version 3.3.0
+ignoredisk --only-use=vda
+autopart
+# Partition clearing information
+clearpart --none --initlabel
+
+# Root password
+rootpw --iscrypted {{ root_pw_hash }}
+user --groups=wheel --name={{ admin_name }} --password={{ admin_pw_hash }} --iscrypted --gecos="{{ admin_name }}"
+
+# Настройка сервисов (в данном случае сервис по обновлению меток времени и дат)
+services --enabled="chronyd"
+
+# Настройка временной зоны
+timezone Europe/Moscow --utc
+
+#Packages
+%packages
+#@^desktop-environment
+{{ packages }}
+%end
+
+#настройка анаконды (оставить как есть)
+%anaconda
+pwpolicy root --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+pwpolicy user --minlen=6 --minquality=1 --notstrict --nochanges --emptyok
+pwpolicy luks --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+%end

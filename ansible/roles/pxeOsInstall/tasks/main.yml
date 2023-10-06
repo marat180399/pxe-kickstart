@@ -1,0 +1,4 @@
+---
+# tasks file for pxeOsInstall
+  - name: KS file generation for engineer ARM
+    import_tasks: ks-engineer.yml

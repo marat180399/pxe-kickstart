@@ -1,0 +1,6 @@
+---
+- name: Generate KS file
+  hosts: localhost
+  become: True
+  roles:
+    - role: 'pxeOsInstall'

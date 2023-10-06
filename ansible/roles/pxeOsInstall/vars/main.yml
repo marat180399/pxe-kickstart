@@ -1,0 +1,7 @@
+---
+  packages: '@^server-minimal'
+  url: http://192.168.2.2/images/REDOS
+  admin_name: marat
+  admin_pw_hash: $6$aoMRowiYgQJg.rnF$bdKLc2cNXB3mdDAdNyl8q1lt1YPH0YfJPFYxL52OyxFQ0wKVdNnlnMWUyo/02TnfvIrhwih6gnXiERNMGGkbJ0
+  root_pw_hash: $6$5.L14ygYhRicou68$Y34E8B5tv2PjL2KbSTxPhYBicNi0z9EXZDzouXBJHemQLOtDZZKTq.EWaocE3z6X4G9Jjva78B/tgZxD4jRT51
+

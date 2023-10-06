@@ -1,0 +1,53 @@
+#!/bin/bash
+defaultAdmin="admin"
+defaultUrl="http://192.168.2.2/images/REDOS"
+defaultPackages="@^desktop-environment"
+defaultAdminPwd="P@ssw0rd"
+defaultRootPwd="P@ssw0rd"
+
+echo "Enter PXE repo URL (default ${defaultUrl})"
+read url
+url=${url:=$defaultUrl}
+
+PS3='Choose the installation variant: '
+variants=("Desktop with GUI" "Server with GUI" "Minimal Server")
+select choice in "${variants[@]}"; do
+    case $choice in
+        "Desktop with GUI")
+            echo "$choice will be deployed on your future system"
+            packages="@^desktop-environment"
+	    break
+	    ;;
+        "Server with GUI")
+            echo "$choice will be deployed on your future system"
+            packages="@^graphical-server-environment"
+	    break
+	    ;;
+        "Minimal Server")
+            echo "$choice will be deployed on your future system"
+            packages="@^server-minimal"
+            break
+	    ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+packages=${packages:=defaultPackages}
+echo "Enter administrator login (default ${defaultAdmin})"
+read admin
+admin=${admin:=$defaultAdmin}
+echo "Now please provide password for user ${admin}"
+read admin_pwd
+admin_pwd=${admin_pw:=$defaultAdminPwd}
+echo "Now please provide password for ROOT user"
+read root_pwd
+root_pwd=${root_pwd:=$defaultRootPwd}
+
+cat <<EOF > roles/pxeOsInstall/vars/main.yml
+---
+  packages: '${packages}'
+  url: $url
+  admin_name: $admin
+  admin_pw_hash: $(mkpasswd --method=SHA-512 --stdin ${admin_pwd})
+  root_pw_hash: $(mkpasswd --method=SHA-512 --stdin ${root_pwd})
+
+EOF

@@ -1,0 +1,5 @@
+- name: Save ks-file using template
+  template:
+    src: ../templates/ks.cfg.j2
+    dest: /var/lib/tftpboot/images/REDOS/ks.cfg
+
