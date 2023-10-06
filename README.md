@@ -1,7 +1,7 @@
 # pxe-kickstart
 Here we have 2 VMs on KVM.
-1st one is PXE server with DHCP, FTFP and HTTP daemon installed. 
-2nd one is VM created by virt-install command with following getting IP and URL for automatic OS installtion.
+<br />1st one is PXE server with DHCP, FTFP and HTTP daemon installed. 
+<br />2nd one is VM created by virt-install command with following getting IP and URL for automatic OS installtion.
 
 <img src="https://raw.githubusercontent.com/marat180399/pxe-kickstart/main/schema.svg" width="100%">
 
@@ -10,8 +10,8 @@ Here we have 2 VMs on KVM.
 2) Run xming on your workstation, run putty, allow X11 forwarding there and connect to your KVM HOST. Run virt-manager, x11 window with VM manager will be displayed on your workstation.
 3) On LOCALHOST create a guest VM and connect it to your newly created network.
 4) Deploy a PXE server on KVM-based VM with REDOS 7.3.2 OS as per instruction & video below:
-   a) https://redos.red-soft.ru/base/server-configuring/other-utilites/setting-server-pxe/pxe-redos-uefi-or-legacy/
-   b) https://www.youtube.com/watch?v=BTo-9lw5QXo&feature=youtu.be
+   <br />a) https://redos.red-soft.ru/base/server-configuring/other-utilites/setting-server-pxe/pxe-redos-uefi-or-legacy/
+   <br />b) https://www.youtube.com/watch?v=BTo-9lw5QXo&feature=youtu.be
 6) Install ansible on PXE server.
 7) Change mod to +x of armConfigInfo bash script and run it. Answer all it's questions. This script puts users variables (http address, admin name, passwords, selected version) into roles/pxeOsInstall/vars/main.yml
 8) Run "ansible-playbook playbook" for generating ks.cfg config file and pushing it into local tftp server directory.
