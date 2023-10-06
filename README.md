@@ -19,4 +19,4 @@ Here we have 2 VMs on KVM.
 10) Newly created VM will be connected to internal network and get IP from DHCPD with other configurations. REDOS 7.3.2 will be automatically installed in a time.
 
 
-P.S. I know that using bash for generating a file containing variables for ansible is not a quite good solution. I could do use only bash for this simple purpose, but the main reason I did that is just to remember how to use ansible:)
+P.S. I know that using bash for generating a file containing variables for ansible is not a quite good solution. I could use only bash for this simple purpose, but the main reason I did that is just to remember how to use ansible:)
